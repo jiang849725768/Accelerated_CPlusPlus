@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\jiang\OneDrive\Learning\C++\test\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jiang\OneDrive\Learning\C++\test\src\algorithm\grade.cpp">
+      <Filter>Source Files\algorithm</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\jiang\OneDrive\Learning\C++\test\src\algorithm\student_info.cpp">
+      <Filter>Source Files\algorithm</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\jiang\OneDrive\Learning\C++\test\src\algorithm\grade.h">
+      <Filter>Header Files\algorithm</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\jiang\OneDrive\Learning\C++\test\src\algorithm\student_info.h">
+      <Filter>Header Files\algorithm</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\jiang\OneDrive\Learning\C++\test\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{BCF1B0DD-55CD-360F-B0F0-A76E49E6D71A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\algorithm">
+      <UniqueIdentifier>{A405E2FE-3DCF-32EC-AAE1-321DF484204C}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{B2FD0117-701B-3BFE-AD91-85148D807E10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\algorithm">
+      <UniqueIdentifier>{B696A585-4163-3AEE-B681-1611E68B8D86}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
