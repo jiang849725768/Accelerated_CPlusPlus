@@ -11,9 +11,6 @@ struct Student_info {
     std::vector<double> homework_grades;
 };
 
-//将学生列表类型定义为list/vector
-typedef std::vector<Student_info> students_type;
-
 //依据学生姓名进行排序
 bool compareStudents(const Student_info& , const Student_info&);
 
@@ -23,7 +20,10 @@ bool readStudents(Student_info&);
 //随机生成一个名为“nobody”的学生及其成绩
 Student_info randomStudent();
 
-//提取挂科学生记录
-students_type extractFailStudents(students_type&);
+//5.1.1中的extract_fails函数
+std::vector<Student_info> extract_fails_origin(std::vector<Student_info>&);
+
+//习题5.6重写extract_fails函数
+std::vector<Student_info> extract_fails_new(std::vector<Student_info>&);
 
 #endif

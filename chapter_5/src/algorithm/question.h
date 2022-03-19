@@ -5,9 +5,12 @@
 int question_one();
 
 //5.2
-int question_two();
+void question_two();
 
-//5.3
-//int question_three();
+//5.5
+void question_five();
+
+//5.6
+void question_six();
 
 #endif // !GUARD_question_h
