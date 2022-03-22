@@ -9,16 +9,13 @@
 #include <exception>
 
 #include "question.h"
-#include "grade.h"
-#include "student_info.h"
-#include "framing.h"
+#include "book.h"
 
 using namespace std;
 
-//6.1
-void question_one()
+//x.1
+int question_one()
 {
 	//nothing
-	;
+	return 0;
 }
-
