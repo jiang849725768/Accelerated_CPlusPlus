@@ -1,6 +1,5 @@
 ﻿#include <cstdio>
 #include <iostream>
-#include <string>
 
 #include "question.h"
 
@@ -8,9 +7,10 @@ using namespace std;
 
 int main()
 {
+	//printf_s("输入题号(1~11):");
 	while (true)
 	{
-		printf_s("输入题号(1~11): (q退出,t for 10, e for 11)");
+		printf_s("输入题号(1~11): (输入q退出)");
 		char label = getchar();
 		//读取并抛弃回车
 		char cl = getchar();
@@ -43,26 +43,6 @@ int main()
 			//练习5.6
 			question_six();
 			break;
-		case '7':
-			//练习5.7
-			question_seven();
-			break;
-		case '8':
-			//练习5.8
-			question_eight();
-			break;
-		case '9':
-			//练习5.9
-			question_nine();
-			break;
-		case 't':
-			//练习5.10
-			question_ten();
-			break;
-		case 'e':
-			//练习5.11
-			question_eleven();
-			break;
 		default:
 			break;
 		}
@@ -71,6 +51,10 @@ int main()
 			break;
 	}
 
+	//练习5.4
+	//练习5.5
+	//练习5.6
+	//练习5.7
 	//练习5.8
 	//练习5.9
 	//练习5.10

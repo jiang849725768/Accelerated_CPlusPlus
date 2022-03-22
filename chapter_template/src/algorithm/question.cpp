@@ -12,7 +12,6 @@
 #include "grade.h"
 #include "student_info.h"
 #include "framing.h"
-#include "other.h"
 
 using namespace std;
 
@@ -147,63 +146,4 @@ void question_six()
 
 	printf_s("新程序用时：%.2lf\n", duration_new);
 	printf_s("总人数: %llu\n", fail_new.size() + students_new.size());
-}
-
-void question_seven()
-{
-	vector<string> v;
-	frame(v);
-}
-
-void question_eight()
-{
-	auto some_strings = genRanStr(5);
-
-	auto heat_strings = heat(some_strings, frame(some_strings));
-	printfOut(heat_strings);
-
-	auto heat_change_strings = heat_change(some_strings, frame(some_strings));
-	printfOut(heat_change_strings);
-}
-
-void question_nine()
-{
-	for (int i = 0; i < 3; i++)
-	{
-		auto some_strings = genRanStr(1);
-		printfOut(some_strings);
-		auto upper_words = split(some_strings[0]);
-		auto lower_words = extractLower(upper_words);
-		printfOut(upper_words);
-		printf_s("---------------\n");
-		printfOut(lower_words);
-		printf_s("---------------\n");
-	}
-}
-
-void question_ten()
-{
-	vector<string> words = { "something", "abcba", "abddba", "a", "" };
-	auto palindromes = findPalindromes(words);
-	printfOut(palindromes);
-	string longest_word = findLongestWord(palindromes);
-	printf_s(longest_word.c_str());
-	putchar('\n');
-}
-
-void question_eleven()
-{
-	//单词集
-	vector<string> words{ "abc","cei","wwww","lkjjh" };
-	//非上下行单词
-	vector<string> no_scender_words;
-
-	for (auto it = words.begin(); it != words.end(); it++)
-	{
-		if (!isScender(*it))
-			no_scender_words.push_back(*it);
-	}
-	printfOut(no_scender_words);
-	auto longest_no_scender_word = findLongestWord(no_scender_words);
-	printf_s(longest_no_scender_word.c_str());
 }
