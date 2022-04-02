@@ -1,40 +1,40 @@
 #ifndef GUARD_question_h
 #define GUARD_question_h
 
-//chapter_X
+//chapter_7
 void question_zero();
 
-//X.1
+//7.1
 void question_one();
 
-//X.2
+//7.2
 void question_two();
 
-//X.3
+//7.3
 void question_three();
 
-//X.4
+//7.4
 void question_four();
 
-//X.5
+//7.5
 void question_five();
 
-//X.6
+//7.6
 void question_six();
 
-//X.7
+//7.7
 void question_seven();
 
-//X.8
+//7.8
 void question_eight();
 
-//X.9
+//7.9
 void question_nine();
 
-//X.10
+//7.10
 void question_ten();
 
-//X.11
+//7.11
 void question_eleven();
 
 #endif // !GUARD_question_h
