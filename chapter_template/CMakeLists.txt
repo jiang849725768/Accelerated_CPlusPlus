@@ -1,36 +1,35 @@
 cmake_minimum_required(VERSION 3.1)
 
 #工程名字定义
-PROJECT(chapter_five)
+PROJECT(chapter_X)
 
-# 编程标准设定（C++20）
-set(CMAKE_CXX_STANDARD 20)
+# 编程标准设定（C++17）
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-#定义工程包含的文件夹及文件
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
-
 #main
-set(PROJECT_MAIN_DIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
-file(GLOB project_main_source_files ${PROJECT_MAIN_DIR}/*.cpp)
-source_group("Source Files" FILES ${project_main_source_files})
+file(GLOB main_file ${PROJECT_SOURCE_DIR}/source/main.cpp)
+source_group("Source" FILES ${main_file})
 
-#algorithm
-set(PROJECT_ALGORITHM_DIR "${PROJECT_MAIN_DIR}/algorithm")
-file(GLOB project_algorithm_header_files ${PROJECT_ALGORITHM_DIR}/*.h)
-file(GLOB project_algorithm_source_files ${PROJECT_ALGORITHM_DIR}/*.cpp)
-source_group("Header Files\\algorithm" FILES ${project_algorithm_header_files})
-source_group("Source Files\\algorithm" FILES ${project_algorithm_source_files})
+# include
+set(PROJECT_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include")
+file(GLOB algorithm_header_files ${PROJECT_INCLUDE_DIR}/*.h)
+source_group("Include" FILES ${algorithm_header_files})
+# set(HEADERS ${PROJECT_INCLUDE_DIR}/*.h)
 
-#将上述文件夹include进工程
-include_directories(${PROJECT_MAIN_DIR} 
-                    ${PROJECT_ALGORITHM_DIR})
+#source
+set(PROJECT_ALGORITHM_DIR "${PROJECT_SOURCE_DIR}/source/algorithm")
+file(GLOB algorithm_source_files ${PROJECT_ALGORITHM_DIR}/*.cpp)
+source_group("Source\\algorithm" FILES ${algorithm_source_files})
+
+# 将头文件include进工程
+# include_directories(${PROJECT_INCLUDE_DIR})
 
 #定义程序所用文件
 add_executable(${PROJECT_NAME}
-               ${project_main_source_files}
-               ${project_algorithm_header_files}
-               ${project_algorithm_source_files})
+               ${main_file}
+               ${algorithm_header_files}
+               ${algorithm_source_files})
 
 
 #文件输出路径

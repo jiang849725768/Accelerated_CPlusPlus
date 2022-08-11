@@ -364,3 +364,5 @@ FodyWeavers.xsd
 
 #obsidian 文件
 .obsidian/
+
+build/

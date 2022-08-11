@@ -1,25 +1,25 @@
-#ifndef GUARD_book_h
+ï»¿#ifndef GUARD_book_h
 #define GUARD_book_h
 
 #include <vector>
 #include <string>
 
-//ÅĞ¶Ï·Ç¿Õ¸ñ×Ö·û
+//åˆ¤æ–­éç©ºæ ¼å­—ç¬¦
 bool isNotSpace(char);
 
-//·Ö¸î×Ö·û´®
+//åˆ†å‰²å­—ç¬¦ä¸²
 std::vector<std::string> split(const std::string&);
 
-//ÅĞ¶ÏÊÇ·ñÎªurl×Ö·û£¬²»ÊÇÔòtrue
+//åˆ¤æ–­æ˜¯å¦ä¸ºurlå­—ç¬¦ï¼Œä¸æ˜¯åˆ™true
 bool notUrlChar(char);
 
-//ÕÒµ½°üº¬"://"µÄurlµÄ¿ªÍ·
+//æ‰¾åˆ°åŒ…å«"://"çš„urlçš„å¼€å¤´
 std::string::const_iterator urlBegin(std::string::const_iterator, std::string::const_iterator);
 
-//¶¨Î»urlµÄ½áÎ²
+//å®šä½urlçš„ç»“å°¾
 std::string::const_iterator urlEnd(std::string::const_iterator, std::string::const_iterator);
 
-//²éÕÒurl
+//æŸ¥æ‰¾url
 std::vector<std::string> findUrls(const std::string&);
 
 #endif

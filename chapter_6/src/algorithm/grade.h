@@ -1,42 +1,42 @@
-#ifndef GUARD_grade_h
+ï»¿#ifndef GUARD_grade_h
 #define GUARD_grade_h
 
 #include <vector>
 #include "student_info.h"
 
-//¼ÆËã³É¼¨Æ½¾ùÊı(6.2.3)
+//è®¡ç®—æˆç»©å¹³å‡æ•°(6.2.3)
 double averageGrade(const std::vector<double>);
 
-//¼ÆËã³É¼¨ÖĞÎ»Êı
+//è®¡ç®—æˆç»©ä¸­ä½æ•°
 double medianGrade(std::vector<double>);
 
-//¼ÆËãÑ§Éú×Ü³É¼¨£¬Ö¸¶¨¼ÆËã·½Ê½
+//è®¡ç®—å­¦ç”Ÿæ€»æˆç»©ï¼ŒæŒ‡å®šè®¡ç®—æ–¹å¼
 double grade(const double, const double, const std::vector<double>&, double calculateGrade(const std::vector<double>));
 
 double grade(const Student_info&);
 
-//Ö¸¶¨grade°æ±¾µÄ¸¨Öúº¯Êı(6.2.2)
+//æŒ‡å®šgradeç‰ˆæœ¬çš„è¾…åŠ©å‡½æ•°(6.2.2)
 double gradeAux(const Student_info&);
 
-//¼ÆËãÒÔÆ½¾ùÊı¼ÆËã¼ÒÍ¥×÷Òµ³É¼¨ºóµÄ×Ü³É¼¨
+//è®¡ç®—ä»¥å¹³å‡æ•°è®¡ç®—å®¶åº­ä½œä¸šæˆç»©åçš„æ€»æˆç»©
 double gradeAverage(const Student_info&);
 
-//¼ÆËãÑ§ÉúÀÖ¹ÛÖĞÖµ¹À¼Æ³É¼¨£¨ºöÂÔ0·Ö£©£¨6.2.4£©
+//è®¡ç®—å­¦ç”Ÿä¹è§‚ä¸­å€¼ä¼°è®¡æˆç»©ï¼ˆå¿½ç•¥0åˆ†ï¼‰ï¼ˆ6.2.4ï¼‰
 double gradeOptimisticMedian(const Student_info&);
 
-//»ñÈ¡Ñ§Éú×Ü³É¼¨ÏòÁ¿ÖĞÎ»Êı£¨¼ÒÍ¥×÷ÒµÒÔÖĞÎ»Êı¼ÆËã£©£¨6.2.2£©
+//è·å–å­¦ç”Ÿæ€»æˆç»©å‘é‡ä¸­ä½æ•°ï¼ˆå®¶åº­ä½œä¸šä»¥ä¸­ä½æ•°è®¡ç®—ï¼‰ï¼ˆ6.2.2ï¼‰
 double medianAnalysis(const std::vector<Student_info>&);
 
-//»ñÈ¡Ñ§Éú×Ü³É¼¨ÏòÁ¿ÖĞÎ»Êı£¨¼ÒÍ¥×÷ÒµÒÔÆ½¾ùÊı¼ÆËã£©£¨6.2.3£©
+//è·å–å­¦ç”Ÿæ€»æˆç»©å‘é‡ä¸­ä½æ•°ï¼ˆå®¶åº­ä½œä¸šä»¥å¹³å‡æ•°è®¡ç®—ï¼‰ï¼ˆ6.2.3ï¼‰
 double averageAnalysis(const std::vector<Student_info>&);
 
-//»ñÈ¡Ñ§Éú×Ü³É¼¨ÏòÁ¿ÖĞÎ»Êı£¨¼ÒÍ¥×÷ÒµÒÔÀÖ¹ÛÖĞÎ»Êı¼ÆËã£©£¨6-5£©
+//è·å–å­¦ç”Ÿæ€»æˆç»©å‘é‡ä¸­ä½æ•°ï¼ˆå®¶åº­ä½œä¸šä»¥ä¹è§‚ä¸­ä½æ•°è®¡ç®—ï¼‰ï¼ˆ6-5ï¼‰
 double optimisticGradeAnalysis(const std::vector<Student_info>&);
 
-//»ñÈ¡Ñ§Éú×Ü³É¼¨ÏòÁ¿ÖĞÎ»Êı£¨¼ÒÍ¥×÷ÒµÒÔÖ¸¶¨·½Ê½¼ÆËã£©£¨6-6£©
+//è·å–å­¦ç”Ÿæ€»æˆç»©å‘é‡ä¸­ä½æ•°ï¼ˆå®¶åº­ä½œä¸šä»¥æŒ‡å®šæ–¹å¼è®¡ç®—ï¼‰ï¼ˆ6-6ï¼‰
 double gradeAnalysis(const std::vector<Student_info>&, double specialAnalysis(const Student_info&));
 
-//Êä³öÑ§Éú¼¯ºÏ¼äµÄ³É¼¨²îÒì£¨6.2.2£©
+//è¾“å‡ºå­¦ç”Ÿé›†åˆé—´çš„æˆç»©å·®å¼‚ï¼ˆ6.2.2ï¼‰
 void writeAnalysis(const std::string&, double analysis(const std::vector<Student_info>&),
 	const std::vector<Student_info>&, const std::vector<Student_info>&);
 #endif

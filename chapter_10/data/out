@@ -1,0 +1,3 @@
+	ifstream infile("./data/in");
+	ofstream outfile("./data/out");
+	中文

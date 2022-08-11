@@ -1,4 +1,4 @@
-#include <stdexcept>
+ï»¿#include <stdexcept>
 #include <algorithm>
 #include <iterator>
 #include <numeric>
@@ -6,14 +6,14 @@
 
 using namespace std;
 
-//¼ÆËã³É¼¨Æ½¾ùÊı(6.2.3)
+//è®¡ç®—æˆç»©å¹³å‡æ•°(6.2.3)
 double averageGrade(const std::vector<double> grades)
 {
-	//Ê¹ÓÃ0.0ÒÔ±£Ö¤½á¹ûÎªdouble
+	//ä½¿ç”¨0.0ä»¥ä¿è¯ç»“æœä¸ºdouble
 	return accumulate(grades.begin(), grades.end(), 0.0) / grades.size();
 }
 
-//¼ÆËã³É¼¨ÖĞÎ»Êı
+//è®¡ç®—æˆç»©ä¸­ä½æ•°
 double medianGrade(vector<double> grades)
 {
 	auto grades_size = grades.size();
@@ -30,7 +30,7 @@ double medianGrade(vector<double> grades)
 	return grades_size % 2 == 0 ? (grades[mid - 1] + grades[mid]) / 2 : grades[mid];
 }
 
-//¼ÆËãÑ§Éú×Ü³É¼¨£¬Ö¸¶¨¼ÆËã·½Ê½
+//è®¡ç®—å­¦ç”Ÿæ€»æˆç»©ï¼ŒæŒ‡å®šè®¡ç®—æ–¹å¼
 double grade(const double mid_grade, const double fin_grade, const std::vector<double>& home_grades, double calculateGrade(const std::vector<double>))
 {
 	double total_grade = mid_grade * 0.2 + fin_grade * 0.4 + calculateGrade(home_grades) * 0.4;
@@ -46,7 +46,7 @@ double grade(const Student_info& student)
 	return total_grade;
 }
 
-//Ö¸¶¨grade°æ±¾µÄ¸¨Öúº¯Êı(6.2.2)
+//æŒ‡å®šgradeç‰ˆæœ¬çš„è¾…åŠ©å‡½æ•°(6.2.2)
 double gradeAux(const Student_info& a_student)
 {
 	try {
@@ -56,26 +56,26 @@ double gradeAux(const Student_info& a_student)
 		return grade(a_student.midterm_grade, a_student.final_grade, a_student.homework_grades, medianGrade);
 	}
 }
-//¼ÆËãÒÔÆ½¾ùÊı¼ÆËã¼ÒÍ¥×÷Òµ³É¼¨ºóµÄ×Ü³É¼¨
+//è®¡ç®—ä»¥å¹³å‡æ•°è®¡ç®—å®¶åº­ä½œä¸šæˆç»©åçš„æ€»æˆç»©
 double gradeAverage(const Student_info& a_student)
 {
 	return grade(a_student.midterm_grade, a_student.final_grade, a_student.homework_grades, averageGrade);
 }
 
-//¼ÆËãÑ§ÉúÀÖ¹ÛÖĞÖµ¹À¼Æ³É¼¨£¨ºöÂÔ0·Ö£©£¨6.2.4£©
+//è®¡ç®—å­¦ç”Ÿä¹è§‚ä¸­å€¼ä¼°è®¡æˆç»©ï¼ˆå¿½ç•¥0åˆ†ï¼‰ï¼ˆ6.2.4ï¼‰
 double gradeOptimisticMedian(const Student_info& a_student)
 {
 	vector<double> nonzero;
 	remove_copy(a_student.homework_grades.begin(), a_student.homework_grades.end(), back_inserter(nonzero), 0);
 
-	//±ÜÃâÈ«Îª0·ÖµÄÇé¿ö
+	//é¿å…å…¨ä¸º0åˆ†çš„æƒ…å†µ
 	if (nonzero.empty())
 		return grade(a_student.midterm_grade, a_student.final_grade, a_student.homework_grades, medianGrade);
 	else
 		return grade(a_student.midterm_grade, a_student.final_grade, nonzero, medianGrade);
 }
 
-//»ñÈ¡Ñ§Éú×Ü³É¼¨ÏòÁ¿ÖĞÎ»Êı£¨¼ÒÍ¥×÷ÒµÒÔÖĞÎ»Êı¼ÆËã£©£¨6.2.2£©
+//è·å–å­¦ç”Ÿæ€»æˆç»©å‘é‡ä¸­ä½æ•°ï¼ˆå®¶åº­ä½œä¸šä»¥ä¸­ä½æ•°è®¡ç®—ï¼‰ï¼ˆ6.2.2ï¼‰
 double medianAnalysis(const std::vector<Student_info>& students)
 {
 	vector<double> grades;
@@ -84,7 +84,7 @@ double medianAnalysis(const std::vector<Student_info>& students)
 	return(medianGrade(grades));
 }
 
-//»ñÈ¡Ñ§Éú×Ü³É¼¨ÏòÁ¿ÖĞÎ»Êı£¨¼ÒÍ¥×÷ÒµÒÔÆ½¾ùÊı¼ÆËã£©£¨6.2.3£©
+//è·å–å­¦ç”Ÿæ€»æˆç»©å‘é‡ä¸­ä½æ•°ï¼ˆå®¶åº­ä½œä¸šä»¥å¹³å‡æ•°è®¡ç®—ï¼‰ï¼ˆ6.2.3ï¼‰
 double averageAnalysis(const std::vector<Student_info>& students)
 {
 	vector<double> grades;
@@ -93,7 +93,7 @@ double averageAnalysis(const std::vector<Student_info>& students)
 	return(medianGrade(grades));
 }
 
-//»ñÈ¡Ñ§Éú×Ü³É¼¨ÏòÁ¿ÖĞÎ»Êı£¨¼ÒÍ¥×÷ÒµÒÔÀÖ¹ÛÖĞÎ»Êı¼ÆËã£©£¨6-5£©
+//è·å–å­¦ç”Ÿæ€»æˆç»©å‘é‡ä¸­ä½æ•°ï¼ˆå®¶åº­ä½œä¸šä»¥ä¹è§‚ä¸­ä½æ•°è®¡ç®—ï¼‰ï¼ˆ6-5ï¼‰
 double optimisticGradeAnalysis(const std::vector<Student_info>& students)
 {
 	vector<double> grades;
@@ -102,7 +102,7 @@ double optimisticGradeAnalysis(const std::vector<Student_info>& students)
 	return medianGrade(grades);
 }
 
-//»ñÈ¡Ñ§Éú×Ü³É¼¨ÏòÁ¿ÖĞÎ»Êı£¨¼ÒÍ¥×÷ÒµÒÔÖ¸¶¨·½Ê½¼ÆËã£©£¨6-6£©
+//è·å–å­¦ç”Ÿæ€»æˆç»©å‘é‡ä¸­ä½æ•°ï¼ˆå®¶åº­ä½œä¸šä»¥æŒ‡å®šæ–¹å¼è®¡ç®—ï¼‰ï¼ˆ6-6ï¼‰
 double gradeAnalysis(const std::vector<Student_info>& students, double specialAnalysis(const Student_info&))
 {
 	vector<double> grades;
@@ -111,10 +111,10 @@ double gradeAnalysis(const std::vector<Student_info>& students, double specialAn
 	return medianGrade(grades);
 }
 
-//Êä³öÑ§Éú¼¯ºÏ¼äµÄ³É¼¨²îÒì(Ã¿¸ö¼¯ºÏµÄ³É¼¨ÖĞÖµ)£¨6.2.2£©
+//è¾“å‡ºå­¦ç”Ÿé›†åˆé—´çš„æˆç»©å·®å¼‚(æ¯ä¸ªé›†åˆçš„æˆç»©ä¸­å€¼)ï¼ˆ6.2.2ï¼‰
 void writeAnalysis(const std::string& name, double analysis(const std::vector<Student_info>&),
 	const std::vector<Student_info>& didStudents, const std::vector<Student_info>& didntStudents)
 {
-	printf_s("%s :median(Íê³ÉËùÓĞ×÷ÒµµÄÑ§Éú) = %.2lf \n", name.c_str(), analysis(didStudents));
-	printf_s("median(Î´Íê³ÉµÄÑ§Éú) = %.2lf \n", analysis(didntStudents));
+	printf_s("%s :median(å®Œæˆæ‰€æœ‰ä½œä¸šçš„å­¦ç”Ÿ) = %.2lf \n", name.c_str(), analysis(didStudents));
+	printf_s("median(æœªå®Œæˆçš„å­¦ç”Ÿ) = %.2lf \n", analysis(didntStudents));
 }

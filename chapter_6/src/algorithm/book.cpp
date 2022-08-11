@@ -1,26 +1,26 @@
-#include "book.h"
+ï»¿#include "book.h"
 #include <cctype>
 #include <algorithm>
 
 using namespace std;
 
-//ÅĞ¶Ï·Ç¿Õ¸ñ×Ö·û
+//åˆ¤æ–­éç©ºæ ¼å­—ç¬¦
 bool isNotSpace(char c)
 {
 	return !isspace(c);
 }
 
-//·Ö¸î×Ö·û´®
+//åˆ†å‰²å­—ç¬¦ä¸²
 std::vector<std::string> split(const std::string& a_string)
 {
 	vector<string> ret;
 	auto i = a_string.begin();
 	while (i != a_string.end())
 	{
-		i = find_if(i, a_string.end(), isNotSpace);			//¶¨Î»·Ç¿Õ¿ªÍ·
-		auto j = find_if(i, a_string.end(), isspace);		//¶¨Î»µ¥´Ê½áÎ²
+		i = find_if(i, a_string.end(), isNotSpace);			//å®šä½éç©ºå¼€å¤´
+		auto j = find_if(i, a_string.end(), isspace);		//å®šä½å•è¯ç»“å°¾
 
-		//¸´ÖÆ[i, j)ÖĞ×Ö·û
+		//å¤åˆ¶[i, j)ä¸­å­—ç¬¦
 		if (i != a_string.end())
 			ret.push_back(string(i, j));
 		i = j;
@@ -29,33 +29,33 @@ std::vector<std::string> split(const std::string& a_string)
 	return ret;
 }
 
-//ÅĞ¶ÏÊÇ·ñÎªurl×Ö·û£¬²»ÊÇÔòtrue
+//åˆ¤æ–­æ˜¯å¦ä¸ºurlå­—ç¬¦ï¼Œä¸æ˜¯åˆ™true
 bool notUrlChar(char c)
 {
-	//³ı×ÖÄ¸Êı×ÖÍâÆäËû¿ÉÄÜ³öÏÖÔÚurlÀïµÄ×Ö·û
+	//é™¤å­—æ¯æ•°å­—å¤–å…¶ä»–å¯èƒ½å‡ºç°åœ¨urlé‡Œçš„å­—ç¬¦
 	static const string url_char = "~;/?:@=&$-_.+!*'(),";
 
-	//ÅĞ¶Ïc×Ö·ûÊÇ·ñÎªurl×Ö·û£¬·µ»ØÈ¡·´½á¹û
+	//åˆ¤æ–­cå­—ç¬¦æ˜¯å¦ä¸ºurlå­—ç¬¦ï¼Œè¿”å›å–åç»“æœ
 	return !(isalnum(c) || find(url_char.begin(), url_char.end(), c) != url_char.end());
 }
 
-//ÕÒµ½°üº¬"://"µÄurlµÄ¿ªÍ·
+//æ‰¾åˆ°åŒ…å«"://"çš„urlçš„å¼€å¤´
 std::string::const_iterator urlBegin(std::string::const_iterator b,
 	std::string::const_iterator e)
 {
 	static const string sep = "://";
-	string::const_iterator i = b;			//iÎª·Ö¸ô·û¿ªÍ·Î»ÖÃ
+	string::const_iterator i = b;			//iä¸ºåˆ†éš”ç¬¦å¼€å¤´ä½ç½®
 
 	while ((i = search(i, e, sep.begin(), sep.end())) != e)
 	{
 		if (i != b && i + sep.size() != e)
 		{
-			string::const_iterator beg = i;	//begÎªurl¿ªÍ·Î»ÖÃ
+			string::const_iterator beg = i;	//begä¸ºurlå¼€å¤´ä½ç½®
 
 			while (beg != b && isalpha(beg[-1]))
 				--beg;
 
-			//È·±£·Ö¸ô·ûÇ°ºó·Ç¿Õ
+			//ç¡®ä¿åˆ†éš”ç¬¦å‰åéç©º
 			if (beg != i && !notUrlChar(i[sep.size()]))
 				return beg;
 		}
@@ -66,14 +66,14 @@ std::string::const_iterator urlBegin(std::string::const_iterator b,
 	return e;
 }
 
-//¶¨Î»urlµÄ½áÎ²
+//å®šä½urlçš„ç»“å°¾
 std::string::const_iterator urlEnd(std::string::const_iterator b,
 	std::string::const_iterator e)
 {
 	return find_if(b, e, notUrlChar);
 }
 
-//²éÕÒurl
+//æŸ¥æ‰¾url
 std::vector<std::string> findUrls(const string& long_string)
 {
 	vector<string> ret;
@@ -81,15 +81,15 @@ std::vector<std::string> findUrls(const string& long_string)
 
 	while (b != e)
 	{
-		//ÕÒµ½°üº¬"://"µÄurlµÄ¿ªÍ·
+		//æ‰¾åˆ°åŒ…å«"://"çš„urlçš„å¼€å¤´
 		b = urlBegin(b, e);
 
 		if (b != e) {
-			//¶¨Î»urlµÄ½áÎ²
+			//å®šä½urlçš„ç»“å°¾
 			auto after = urlEnd(b, e);
-			//Ìí¼Óurl
+			//æ·»åŠ url
 			ret.push_back(string(b, after));
-			//ÍÆ½øbÖÁµ±Ç°urlµÄ½áÎ²¼ÌĞø²éÕÒ
+			//æ¨è¿›bè‡³å½“å‰urlçš„ç»“å°¾ç»§ç»­æŸ¥æ‰¾
 			b = after;
 		}
 	}

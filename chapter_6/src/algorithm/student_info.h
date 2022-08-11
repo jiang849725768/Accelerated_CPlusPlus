@@ -1,4 +1,4 @@
-#ifndef GUARD_student_info_h
+ï»¿#ifndef GUARD_student_info_h
 #define GUARD_student_info_h
 #include <string>
 #include <vector>
@@ -11,31 +11,31 @@ struct Student_info {
 	std::vector<double> homework_grades;
 };
 
-//ÒÀ¾İÑ§ÉúĞÕÃû½øĞĞÅÅĞò
+//ä¾æ®å­¦ç”Ÿå§“åè¿›è¡Œæ’åº
 bool compareStudents(const Student_info&, const Student_info&);
 
-//ÕÒµ½Í¨¹ı¿¼ÊÔµÄÑ§Éú
+//æ‰¾åˆ°é€šè¿‡è€ƒè¯•çš„å­¦ç”Ÿ
 bool pgrade(const Student_info&);
 
-//ÕÒµ½Î´Í¨¹ı¿¼ÊÔµÄÑ§Éú
+//æ‰¾åˆ°æœªé€šè¿‡è€ƒè¯•çš„å­¦ç”Ÿ
 bool fgrade(const Student_info&);
 
-//¶ÁÈëÑ§ÉúÊı¾İ
+//è¯»å…¥å­¦ç”Ÿæ•°æ®
 bool readStudents(Student_info&);
 
-//Ëæ»úÉú³ÉÒ»¸öÃûÎª¡°nobody¡±µÄÑ§Éú¼°Æä³É¼¨
+//éšæœºç”Ÿæˆä¸€ä¸ªåä¸ºâ€œnobodyâ€çš„å­¦ç”ŸåŠå…¶æˆç»©
 Student_info randomStudent();
 
-//ÌáÈ¡¹Ò¿ÆÑ§Éú(6.3.1)£¨2³É¼¨¼ÆËãÃ¿Ñ§ÉúÃ¿´Î£©
+//æå–æŒ‚ç§‘å­¦ç”Ÿ(6.3.1)ï¼ˆ2æˆç»©è®¡ç®—æ¯å­¦ç”Ÿæ¯æ¬¡ï¼‰
 std::vector<Student_info> extractFails(std::vector<Student_info>&);
 
-//ÌáÈ¡¹Ò¿ÆÑ§Éú(6.3.2)£¨1³É¼¨¼ÆËãÃ¿Ñ§ÉúÃ¿´Î£©
+//æå–æŒ‚ç§‘å­¦ç”Ÿ(6.3.2)ï¼ˆ1æˆç»©è®¡ç®—æ¯å­¦ç”Ÿæ¯æ¬¡ï¼‰
 std::vector<Student_info> greaterExtractFails(std::vector<Student_info>&);
 
-//ÅĞ¶ÏÑ§ÉúÊÇ·ñ×öÁËËùÓĞµÄ¼ÒÍ¥×÷Òµ(6.2.1)
+//åˆ¤æ–­å­¦ç”Ÿæ˜¯å¦åšäº†æ‰€æœ‰çš„å®¶åº­ä½œä¸š(6.2.1)
 bool didAllHomework(const Student_info&);
 
-//ÌáÈ¡Î´Íê³ÉÈ«²¿¼ÒÍ¥×÷ÒµÑ§Éú(6-7)£¨1³É¼¨¼ÆËãÃ¿Ñ§ÉúÃ¿´Î£©
+//æå–æœªå®Œæˆå…¨éƒ¨å®¶åº­ä½œä¸šå­¦ç”Ÿ(6-7)ï¼ˆ1æˆç»©è®¡ç®—æ¯å­¦ç”Ÿæ¯æ¬¡ï¼‰
 std::vector<Student_info> extractDidnt(std::vector<Student_info>&);
 
 #endif
