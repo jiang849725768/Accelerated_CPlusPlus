@@ -4,25 +4,25 @@
 #include <string>
 #include <vector>
 
-//Çó×î´óĞĞ³¤¶È
+//æ±‚æœ€å¤§è¡Œé•¿åº¦
 std::string::size_type maxWidth(const std::vector<std::string>&);
 
-//¾ÓÖĞÌî³ä×Ö·û´®×é
+//å±…ä¸­å¡«å……å­—ç¬¦ä¸²ç»„
 std::vector<std::string> center(const std::vector<std::string>&);
 
-//Êä³ö×Ö·û´®×é
+//è¾“å‡ºå­—ç¬¦ä¸²ç»„
 void printfOut(const std::vector<std::string>&);
 
-//Ëæ»úÉú³É×Ö·û´®×é
+//éšæœºç”Ÿæˆå­—ç¬¦ä¸²ç»„
 std::vector<std::string> genRanStr(const int);
 
-//×Ö·û´®×°¿ò
+//å­—ç¬¦ä¸²è£…æ¡†
 std::vector<std::string> frame(const std::vector<std::string>&);
 
-//×Ö·û´®ºáÏòÁ¬½Ó
+//å­—ç¬¦ä¸²æ¨ªå‘è¿æ¥
 std::vector<std::string> heat(const std::vector<std::string>&, const std::vector<std::string>&);
 
-//×Ö·û´®ºáÏòÁ¬½Ó(5.8)
+//å­—ç¬¦ä¸²æ¨ªå‘è¿æ¥(5.8)
 std::vector<std::string> heat_change(const std::vector<std::string>&, const std::vector<std::string>&);
 
 #endif // !GUARD_framing_h

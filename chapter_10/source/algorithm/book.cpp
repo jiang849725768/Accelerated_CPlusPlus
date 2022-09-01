@@ -1,8 +1,10 @@
 ﻿#include "book.h"
 
 #include <string>
+#include <algorithm>
 
 using std::string;
+using std::copy;
 
 std::string letter_grade(double grade)
 {
@@ -23,4 +25,20 @@ std::string letter_grade(double grade)
 			return letters[i];
 	}
 	return "?\?\?";
+}
+
+//10.6.1
+// ReSharper disable once CppInconsistentNaming
+int* pointer_to_dynamic()
+{
+	return new int(0);
+}
+
+//10.6.2
+char* duplicate_chars(const char* p)
+{
+	size_t length = strlen(p) + 1;
+	auto result = new char[length];
+	copy(p, p + length, result);
+	return result;
 }

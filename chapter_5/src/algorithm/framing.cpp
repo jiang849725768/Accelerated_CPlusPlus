@@ -7,7 +7,7 @@
 
 using namespace std;
 
-//Çó×î´óĞĞ³¤¶È
+//æ±‚æœ€å¤§è¡Œé•¿åº¦
 string::size_type maxWidth(const vector<string>& some_strings)
 {
 	string::size_type maxlen = 0;
@@ -16,17 +16,17 @@ string::size_type maxWidth(const vector<string>& some_strings)
 	return maxlen;
 }
 
-//¾ÓÖĞÌî³ä×Ö·û´®
+//å±…ä¸­å¡«å……å­—ç¬¦ä¸²
 vector<string> center(const vector<string>& some_strings)
 {
 	auto maxlen = maxWidth(some_strings);
 	vector<string> new_strings{};
 
-	//Ìí¼ÓÉÏ±ß¿ò
+	//æ·»åŠ ä¸Šè¾¹æ¡†
 	string border(maxlen + 2, '*');
 	new_strings.push_back(border);
 
-	//ÓÃ*Ìî³ä
+	//ç”¨*å¡«å……
 	for (auto it = some_strings.begin(); it != some_strings.end(); ++it)
 	{
 		string::size_type left_part_length = (maxlen - (*it).size()) / 2;
@@ -34,13 +34,13 @@ vector<string> center(const vector<string>& some_strings)
 		new_strings.push_back(string(left_part_length + 1, '*') + (*it) + string(right_part_length + 1, '*'));
 	}
 
-	//Ìí¼ÓÏÂ±ß¿ò
+	//æ·»åŠ ä¸‹è¾¹æ¡†
 	new_strings.push_back(border);
 
 	return new_strings;
 }
 
-//Êä³ö×Ö·û´®×é
+//è¾“å‡ºå­—ç¬¦ä¸²ç»„
 void printfOut(const vector<string>& some_strings)
 {
 	for (auto it = some_strings.begin(); it != some_strings.end(); ++it)
@@ -49,18 +49,18 @@ void printfOut(const vector<string>& some_strings)
 	}
 }
 
-//length: ²úÉú×Ö·û´®×éµÄ³¤¶È
+//length: äº§ç”Ÿå­—ç¬¦ä¸²ç»„çš„é•¿åº¦
 vector<string> genRanStr(const int length)
 {
 	char tmp{};
 	vector<string> some_strings{};
 	string a_string;
 
-	//¶¨ÒåÖÖ×Ó·¢ÉúÆ÷
+	//å®šä¹‰ç§å­å‘ç”Ÿå™¨
 	random_device rd;
-	//¶¨ÒåËæ»úÊıĞòÁĞÉú³ÉÆ÷
+	//å®šä¹‰éšæœºæ•°åºåˆ—ç”Ÿæˆå™¨
 	default_random_engine rng{ rd() };
-	//Ö¸¶¨Ëæ»úÊıÀàĞÍºÍ·¶Î§
+	//æŒ‡å®šéšæœºæ•°ç±»å‹å’ŒèŒƒå›´
 	uniform_int_distribution<int> random_string_length(10, 40);
 	uniform_int_distribution<int> random_char(0, 60);
 
@@ -68,14 +68,14 @@ vector<string> genRanStr(const int length)
 		a_string = "";
 		int string_lenth = random_string_length(rng);
 		for (int j = 0; j < string_lenth; j++) {
-			tmp = random_char(rng);			// Ëæ»úÒ»¸ö 0-60 µÄÕûÊı£¬a-z¡¢A-Z ¹² 52 ÖÖ×Ö·û
-			if (tmp > 51) {					// Èç¹ûËæ»úÊı´óÓÚ 51£¬±ä»»³ÉÒ»¸ö¿Õ¸ñµÄ ASCII
+			tmp = random_char(rng);			// éšæœºä¸€ä¸ª 0-60 çš„æ•´æ•°ï¼Œa-zã€A-Z å…± 52 ç§å­—ç¬¦
+			if (tmp > 51) {					// å¦‚æœéšæœºæ•°å¤§äº 51ï¼Œå˜æ¢æˆä¸€ä¸ªç©ºæ ¼çš„ ASCII
 				tmp = ' ';
 			}
-			else if (tmp < 26) {			// Èç¹ûËæ»úÊıĞ¡ÓÚ 26£¬±ä»»³ÉÒ»¸öĞ¡Ğ´×ÖÄ¸µÄ ASCII
+			else if (tmp < 26) {			// å¦‚æœéšæœºæ•°å°äº 26ï¼Œå˜æ¢æˆä¸€ä¸ªå°å†™å­—æ¯çš„ ASCII
 				tmp += 'a';
 			}
-			else {							// ÆäËûÇé¿ö£¬±ä»»³ÉÒ»¸ö´óĞ´×ÖÄ¸µÄ ASCII
+			else {							// å…¶ä»–æƒ…å†µï¼Œå˜æ¢æˆä¸€ä¸ªå¤§å†™å­—æ¯çš„ ASCII
 				tmp -= 26;
 				tmp += 'A';
 			}
@@ -87,29 +87,29 @@ vector<string> genRanStr(const int length)
 	return some_strings;
 }
 
-//×Ö·û´®×°¿ò
+//å­—ç¬¦ä¸²è£…æ¡†
 std::vector<std::string> frame(const std::vector<std::string>& some_strings)
 {
 	vector<string> ret;
 	auto maxlen = maxWidth(some_strings);
 	string border(maxlen + 4, '*');
 
-	//ÉÏ±ß¿ò
+	//ä¸Šè¾¹æ¡†
 	ret.push_back(border);
 
-	//ÄÚ²¿ĞĞ
+	//å†…éƒ¨è¡Œ
 	for (vector<string>::size_type i = 0; i != some_strings.size(); ++i)
 	{
 		ret.push_back("* " + some_strings[i] + string(maxlen - some_strings[i].size(), ' ') + " *");
 	}
 
-	//ÏÂ±ß¿ò
+	//ä¸‹è¾¹æ¡†
 	ret.push_back(border);
 
 	return ret;
 }
 
-//×Ö·û´®ºáÏòÁ¬½Ó
+//å­—ç¬¦ä¸²æ¨ªå‘è¿æ¥
 vector<string> heat(const vector<string>& left_strings, const vector<string>& right_strings)
 {
 	vector<string> ret;
@@ -120,13 +120,13 @@ vector<string> heat(const vector<string>& left_strings, const vector<string>& ri
 
 	while (i != left_strings.size() || j != right_strings.size())
 	{
-		//ÓÃÓÚ±£´æÁ¬½ÓºóµÄĞÂ×Ö·û´®
+		//ç”¨äºä¿å­˜è¿æ¥åçš„æ–°å­—ç¬¦ä¸²
 		string s;
 
 		if (i != left_strings.size())
 			s = left_strings[i++];
 
-		//Ìî³ä£¬Í¬Ê±ÔÚ×óÓÒÖ®¼äÁôÒ»¸ö¿Õ¸ñ
+		//å¡«å……ï¼ŒåŒæ—¶åœ¨å·¦å³ä¹‹é—´ç•™ä¸€ä¸ªç©ºæ ¼
 		s += string(left_width + 1 - s.size(), ' ');
 
 		if (j != right_strings.size())
@@ -138,7 +138,7 @@ vector<string> heat(const vector<string>& left_strings, const vector<string>& ri
 	return ret;
 }
 
-//×Ö·û´®ºáÏòÁ¬½Ó
+//å­—ç¬¦ä¸²æ¨ªå‘è¿æ¥
 vector<string> heat_change(const vector<string>& left_strings, const vector<string>& right_strings)
 {
 	vector<string> ret;
@@ -147,7 +147,7 @@ vector<string> heat_change(const vector<string>& left_strings, const vector<stri
 
 	vector<string>::size_type i = 0, j = 0;
 
-	//ÓÃÓÚ±£´æÁ¬½ÓºóµÄĞÂ×Ö·û´®
+	//ç”¨äºä¿å­˜è¿æ¥åçš„æ–°å­—ç¬¦ä¸²
 	string s;
 
 	while (i != left_strings.size() || j != right_strings.size())
@@ -155,7 +155,7 @@ vector<string> heat_change(const vector<string>& left_strings, const vector<stri
 		if (i != left_strings.size())
 			s = left_strings[i++];
 
-		//Ìî³ä£¬Í¬Ê±ÔÚ×óÓÒÖ®¼äÁôÒ»¸ö¿Õ¸ñ
+		//å¡«å……ï¼ŒåŒæ—¶åœ¨å·¦å³ä¹‹é—´ç•™ä¸€ä¸ªç©ºæ ¼
 		s += string(left_width + 1 - s.size(), ' ');
 
 		if (j != right_strings.size())

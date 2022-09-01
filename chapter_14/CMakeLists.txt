@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.1)
 
 #工程名字定义
-PROJECT(chapter_X)
+PROJECT(chapter_fourteen)
 
 # 编程标准设定（C++17）
 set(CMAKE_CXX_STANDARD 17)
@@ -19,7 +19,8 @@ source_group("Include" FILES ${algorithm_header_files})
 # source
 set(PROJECT_ALGORITHM_DIR "${PROJECT_SOURCE_DIR}/src/algorithm")
 file(GLOB algorithm_source_files ${PROJECT_ALGORITHM_DIR}/*.cpp)
-source_group("Source\\algorithm" FILES ${algorithm_source_files})
+file(GLOB algorithm_template_files ${PROJECT_ALGORITHM_DIR}/*.tpp)
+source_group("Source\\algorithm" FILES ${algorithm_source_files} ${algorithm_template_files})
 
 # 将头文件include进工程
 include_directories(${PROJECT_INCLUDE_DIR})
@@ -28,7 +29,8 @@ include_directories(${PROJECT_INCLUDE_DIR})
 add_executable(${PROJECT_NAME}
                ${main_file}
                ${algorithm_header_files}
-               ${algorithm_source_files})
+               ${algorithm_source_files}
+               ${algorithm_template_files})
 
 
 #工作路径

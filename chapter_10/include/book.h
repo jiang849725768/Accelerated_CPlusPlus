@@ -6,4 +6,8 @@
 
 std::string letter_grade(double grade);
 
+int* pointer_to_dynamic();
+
+char* duplicate_chars(const char* p);
+
 #endif// !GUARD_BOOK_H

@@ -9,6 +9,7 @@ using namespace std;
 
 int main(int argc, char** argv)
 {
+	/*
 	//10.4
 	//显示可能存在的命令行参数
 	if (argc > 1)
@@ -41,6 +42,7 @@ int main(int argc, char** argv)
 		}
 	}
 	cout << "复制失败文件" << fail_count << "个" << endl;
+*/
 
 	//printf_s("输入题号(1~x):");
 	while (true)
@@ -60,8 +62,6 @@ int main(int argc, char** argv)
 		case '0':
 			//chapter_10
 			questionZero();
-		//10.4
-
 			break;
 		case '1':
 			//练习10-1
